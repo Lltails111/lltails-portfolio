@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { SECTIONS } from '../content/sections.js'
-import { useAudio } from '../hooks/useAudio.jsx'
+
 import { useScrollActivity } from '../hooks/useScrollActivity.js'
 import { useSectionObserver } from '../hooks/useSectionObserver.js'
 import { useTypewriter } from '../hooks/useTypewriter.js'
@@ -16,7 +16,7 @@ function getScrollProgress() {
 }
 
 export default function CharacterGuide({ sectionIds }) {
-  const { play } = useAudio()
+ 
   const activeId = useSectionObserver(sectionIds)
   const scrolling = useScrollActivity({ idleMs: 200 })
 
@@ -39,7 +39,7 @@ export default function CharacterGuide({ sectionIds }) {
       if (p > 0.985 && !clapOnceRef.current) {
         clapOnceRef.current = true
         setClapping(true)
-        play('clap', { volume: 0.65 })
+        
         window.setTimeout(() => setClapping(false), 2400)
       }
 
@@ -57,11 +57,11 @@ export default function CharacterGuide({ sectionIds }) {
     }
     if (stepLockRef.current) return
     stepLockRef.current = true
-    play('walk', { volume: 0.15 })
+   
     window.setTimeout(() => {
       stepLockRef.current = false
     }, 900)
-  }, [play, scrolling])
+  }, [scrolling])
 
   const y = useMemo(() => {
     // Keep character within viewport, with some "path" padding.

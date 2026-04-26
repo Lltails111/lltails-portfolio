@@ -1,9 +1,9 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { useAudio } from '../hooks/useAudio.jsx'
+
 
 export default function IntroSequence({ onEntered }) {
-  const { play } = useAudio()
+ 
   const [busy, setBusy] = useState(false)
 
   const rootRef = useRef(null)
@@ -181,11 +181,10 @@ export default function IntroSequence({ onEntered }) {
       gsap.set(chestRef.current, { opacity: 1, scale: 1 })
     }
     
-    play('grab', { volume: 0.55 })
+    
     tl.eventCallback('onUpdate', () => {
       const t = tl.time()
-      if (t > 1.12 && t < 1.2) play('chest', { volume: 0.6 })
-      if (t > 1.3 && t < 1.38) play('map', { volume: 0.55 })
+      
     })
     tl.play(0)
   }

@@ -1,7 +1,7 @@
 // src/components/MapNav.jsx
 import { AnimatePresence, motion } from 'framer-motion'
 import { MAP_HOTSPOTS } from '../content/sections.js'
-import { useAudio } from '../hooks/useAudio.jsx'
+
 import { useSectionObserver } from '../hooks/useSectionObserver.js'
 
 function scrollToId(id) {
@@ -11,7 +11,7 @@ function scrollToId(id) {
 }
 
 export default function MapNav({ open, onOpenChange, sectionIds }) {
-  const { play } = useAudio()
+  
   const activeId = useSectionObserver(sectionIds)
 
   return (
@@ -21,7 +21,7 @@ export default function MapNav({ open, onOpenChange, sectionIds }) {
         <button
           type="button"
           onClick={() => {
-            play('map', { volume: 0.45 })
+            
             onOpenChange?.(!open)
           }}
           className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 px-4 py-3 shadow-[var(--shadow-soft)] backdrop-blur transition hover:bg-white"
@@ -114,7 +114,7 @@ export default function MapNav({ open, onOpenChange, sectionIds }) {
                     key={h.id}
                     type="button"
                     onClick={() => {
-                      play('map', { volume: 0.35 })
+                      
                       onOpenChange?.(false)  // 点击跳转后关闭地图弹窗
                       scrollToId(h.id)
                     }}
