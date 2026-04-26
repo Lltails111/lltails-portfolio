@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1d1b1f;
+  --color-ink-soft: #3b3642;
+  --color-paper: #fff7e6;
+  --color-paper-2: #fff1cf;
+  --color-brand: #7a5b3a;
+  --color-moss: #4f7a4b;
+  --color-sky: #bfe8ff;
+  --color-heart: #ff8da1;
+
+  --shadow-soft: 0 10px 30px rgba(32, 24, 16, 0.12);
+  --shadow-card: 0 14px 60px rgba(32, 24, 16, 0.14);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(1200px 600px at 20% 0%, var(--color-sky) 0%, rgba(191, 232, 255, 0) 60%),
+    radial-gradient(900px 500px at 75% 10%, var(--color-paper-2) 0%, rgba(255, 241, 207, 0) 60%),
+    linear-gradient(180deg, var(--color-paper) 0%, #fffdf6 60%, #ffffff 100%);
+}
+
+/* Hide scrollbars on webkit; keep scroll. */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(122, 91, 58, 0.18);
+  border-radius: 999px;
+}
